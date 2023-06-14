@@ -1,0 +1,45 @@
+import pandas as pd
+import numpy as np
+
+aqi = pd.read_csv('c4_epa_air_quality.csv')
+
+#summarise AQI
+print(aqi.describe(include='all'))
+
+#counts of values
+print(aqi['state_name'].value_counts())
+
+summarise mean AQI for RRE states
+rre_states = ['California','Florida','Michigan','Ohio','Pennsylvania','Texas']
+aqi_rre = aqi[aqi['state_name'].isin(rre_states)]
+aqi_rre.groupby(['state_name']).agg({"aqi":"mean","state_name":"count"})
+
+#boxplot for AQI in these states
+import seaborn as sns
+sns.boxplot(x=aqi_rre["state_name"],y=aqi_rre["aqi"])
+
+# 1. construct your sample statistic
+aqi_ca = aqi[aqi['state_name']=='California']
+sample_mean = aqi_ca['aqi'].mean()
+sample_mean
+
+# 2. Confidence interval
+confidence_level = 0.95
+
+# 3. Margin of error
+z_value = 1.96
+standard_error = aqi_ca['aqi'].std() / np.sqrt(aqi_ca.shape[0])
+  print("standard error:")
+  print(standard_error)
+margin_of_error = standard_error * z_value
+  print("margin of error:")
+  print(margin_of_error)
+  
+# 4. Calculate Interval
+upper_ci_limit = sample_mean + margin_of_error
+lower_ci_limit = sample_mean - margin_of_error
+(lower_ci_limit, upper_ci_limit)
+
+# ALTERNATIVE
+from scipy import stats
+stats.norm.interval(alpha=confidence_level, loc=sample_mean, scale=standard_error)
