@@ -1,0 +1,19 @@
+import pandas as pd
+from scipy import stats
+
+taxi_data = pd.read_csv("2017_Yellow_Taxi_Trip_Data.csv", index_col = 0)
+
+taxi_data.describe(include='all')
+
+taxi_data.groupby('payment_type')['total_amount'].mean()
+
+
+#𝐻0 : There is no difference in the average total fare amount between customers who use credit cards and customers who use cash.
+
+#𝐻𝐴: There is a difference in the average total fare amount between customers who use credit cards and customers who use cash.
+
+credit_card = taxi_data[taxi_data['payment_type'] == 1]['total_amount']
+cash = taxi_data[taxi_data['payment_type'] == 2]['total_amount']
+stats.ttest_ind(a=credit_card, b=cash, equal_var=False)
+
+ = #Ttest_indResult(statistic=20.34644022783838, pvalue=4.5301445359736376e-91)
