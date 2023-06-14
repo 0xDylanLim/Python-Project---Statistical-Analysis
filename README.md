@@ -2,10 +2,10 @@ You are a member of an analytics team for the United States Environmental Protec
 
 This project involves the use of Python to perform statistical analysis on AQI.
 
-Z scores
-Best fits Data
-outlier detection
-sampling techniques
-Confidence intervals
-Hypothesis testing
-Visualizations on various state AQIs
+- scores
+- Best fits Data
+- outlier detection
+- sampling techniques
+- Confidence intervals
+- Hypothesis testing
+- Visualisations on various state AQIs
