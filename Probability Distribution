@@ -1,0 +1,42 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from scipy import stats
+
+data = pd.read_csv("modified_c4_epa_air_quality.csv")
+
+data.head(10)
+data.shape
+data["aqi_log"].hist();
+fig = sm.qqplot(data["aqi_log"], line='s')
+plt.show()
+
+mean_aqi_log = data["aqi_log"].mean()
+print(mean_aqi_log)
+
+std_aqi_log = data["aqi_log"].std()
+print(std_aqi_log)
+
+lower_limit = mean_aqi_log - 1 * std_aqi_log
+upper_limit = mean_aqi_log + 1 * std_aqi_log
+print(lower_limit, upper_limit)
+
+((data["aqi_log"] >= lower_limit) & (data["aqi_log"] <= upper_limit)).mean() * 100
+
+lower_limit = mean_aqi_log - 2 * std_aqi_log
+upper_limit = mean_aqi_log + 2 * std_aqi_log
+print(lower_limit, upper_limit)
+
+((data["aqi_log"] >= lower_limit) & (data["aqi_log"] <= upper_limit)).mean() * 100
+
+lower_limit = mean_aqi_log - 3 * std_aqi_log
+upper_limit = mean_aqi_log + 3 * std_aqi_log
+print(lower_limit, upper_limit)
+
+((data["aqi_log"] >= lower_limit) & (data["aqi_log"] <= upper_limit)).mean() * 100
+
+data["z_score"] = stats.zscore(data["aqi_log"])
+data.head()
+
+data[(data["z_score"] > 3) | (data["z_score"] < -3)]
