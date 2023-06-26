@@ -11,7 +11,7 @@ This project involves the use of Python to perform statistical analysis on AQI.
 - Visualisations on various state AQIs
 
 
-###################################################### DESCRIPTIVE STATISTICS ###########################################################################
+----- DESCRIPTIVE STATISTICS -----
 .head function displays the first 10 rows of the data.
 
 ![Screenshot 2023-06-26 171815](https://github.com/0xDylanLim/Python-Project-Statistical-Analysis-on-Air-Quality-Pollution/assets/98394792/aaaca5c5-be64-4352-b69c-7cf387aa2c68)
@@ -22,7 +22,7 @@ This project involves the use of Python to perform statistical analysis on AQI.
 
 The count row shows that for the aqi column, there are 260 values. We can individually code for these values using .mean, .median, .min, .max, .std, 
 
-#################################################### PROBABILITY DISTRIBUTIONS ########################################################################
+----- PROBABILITY DISTRIBUTIONS -----
 
 The code for this section involves a modified version of the original AQI data.
 
@@ -44,7 +44,7 @@ About 76.15% of the data falls within 1 standard deviation of the mean.
 About 95.77% of the data falls within 2 standard deviations of the mean.
 About 99.62% of the data falls within 3 standard deviations of the mean.
 
-###################################################################### SAMPLING ###############################################################################
+----- SAMPLING -----
 
 First, we can define the population mean, then create a sample from the entire dataset. This will allow us to run statistical tests in the future. Let's test the central limit theorem, by reiterating the sampling test 10,000 times. We will see that the sample mean should roughly equal the population mean as more random samples are taken. This sampling test involves sampling with replacement. A histogram helps visualize this by creating a new data frame of the mean of the sum of the mean of each sampling test.
 
@@ -54,7 +54,7 @@ The standard error of a statistic is the standard deviation of the sampling dist
 
 ![Screenshot 2023-06-26 174630](https://github.com/0xDylanLim/Python-Project-Statistical-Analysis-on-Air-Quality-Pollution/assets/98394792/456e0b85-9c8d-492f-99cc-e10ac416d843)
 
-###################################################################### CONFIDENCE INTERVAL ###############################################################################
+----- CONFIDENCE INTERVAL -----
 
 
 
