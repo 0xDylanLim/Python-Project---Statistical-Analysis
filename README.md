@@ -12,6 +12,7 @@ This project involves the use of Python to perform statistical analysis on AQI.
 
 
 ----- DESCRIPTIVE STATISTICS -----
+
 .head function displays the first 10 rows of the data.
 
 ![Screenshot 2023-06-26 171815](https://github.com/0xDylanLim/Python-Project-Statistical-Analysis-on-Air-Quality-Pollution/assets/98394792/aaaca5c5-be64-4352-b69c-7cf387aa2c68)
